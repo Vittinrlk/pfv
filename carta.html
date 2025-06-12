@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carta para Você</title>
+  <link rel="stylesheet" href="style.css?v=2">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #c2484c, #000000);
+      color: white;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .container {
+      max-width: 800px; /* Limita a largura da carta */
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    #animacao-carta {
+      cursor: pointer;
+      font-size: 2rem;
+      margin: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Centraliza o conteúdo */
+    }
+
+    #animacao-carta .emoji {
+      font-size: 4rem; /* Aumenta o tamanho do emoji */
+    }
+
+    #conteudo-carta {
+      display: none;
+    }
+
+    button {
+      margin-top: 40px; /* Aumentando a margem para posicionar o botão mais para baixo */
+      padding: 10px 20px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #ff1493;
+    }
+
+    /* Media Queries for Responsive Design */
+    @media (max-width: 767px) {
+      body {
+        padding: 10px;
+    background: linear-gradient(135deg, #c2484c, #000000); /* fundo mais suave e clarinho no mobile */
+    transition: transform 0.3s ease;
+    transform: scale(0.9);
+    transform-origin: top center;
+    margin: 0 auto;
+    max-width: 100vw;
+      }
+
+      header h1 {
+        font-size: 1.5em;
+      }
+
+      #animacao-carta {
+        font-size: 1.5rem;
+      }
+
+      #animacao-carta .emoji {
+        font-size: 3rem; /* Reduz o tamanho do emoji em telas menores */
+      }
+
+      button {
+        font-size: 1rem;
+        padding: 8px 15px;
+      }
+
+      .container {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="hearts-container"></div>
+
+  <header>
+    <h1>Te Amo, Jhennifer 💖</h1>
+    <nav class="menu-circulo">
+      <a href="index.html">🏠</a>
+      <a href="carta.html">💌</a>
+      <a href="fotos.html">📸</a>
+      <a href="recados.html">📝</a>
+      <a href="quiz.html">❓</a>
+      <a href="final.html">💖</a>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <div id="animacao-carta" class="animacao-carta" onclick="mostrarCarta()">
+      <span class="emoji">💌</span>
+      <p class="click-text">Clique para abrir sua carta</p>
+    </div>
+
+    <div id="conteudo-carta" class="carta-scroll">
+      <h2>Minha Carta pra Você 💌</h2>
+
+      <p>nosso amor, nossa história…</p>
+
+      <p>hoje estamos aqui, vivendo o nosso segundo dia dos namorados juntos, mas a nossa história começou muito antes disso. lembro como se fosse ontem aquele primeiro dia dos namorados que passei com você, quando a gente ainda nem namorava, só dois "amigos" treinando juntos na academia… mas lá no fundo, já existia algo forte demais, algo que ninguém precisava dizer, porque até quem tava de fora já via e falava: "esses dois ainda vão ficar juntos". e olha só onde a gente chegou.</p>
+
+      <p>depois veio aquele 09 de setembro de 2023… o dia que ficou cravado pra sempre no meu peito. foi quando ficamos pela primeira vez. eu, todo cabaço, sem saber o que fazer, meio perdido, mas com uma certeza enorme dentro de mim: era você. era você o tempo todo. você sempre foi o amor da minha vida, antes mesmo da gente saber o que tava acontecendo.</p>
+
+      <p>e as lembranças vão se somando. lembro do dia 18 de outubro de 2023, quando você me deu aquele presente de aniversário. nunca vou esquecer o quanto aquilo mexeu comigo. foi a primeira vez que alguém me deu algo carregado de sentimento, de amor, de carinho verdadeiro. ali eu percebi o quanto era diferente, o quanto era real. eu nunca tinha sentido isso antes, nunca soube como era receber algo de alguém que eu amava… e naquele dia, você me mostrou.</p>
+
+      <p>e então eu tomei coragem. fiz aquele presente todo preparado, com a carta, com o pedido de namoro… e você disse sim. o sim mais importante da minha vida inteira. dali em diante, começou a nossa história oficial, a melhor decisão que já tomei.</p>
+
+      <p>e entre tudo isso vieram os nossos momentos simples, mas que significam o mundo pra mim. o açaí que a gente comeu no chão, as dificuldades de não ter privacidade, os encontros escondidos, as conversas com as famílias cheias de nervosismo, o tesão misturado com ansiedade, sem saber direito como seria, porque tudo era novo pros dois. nenhum de nós nunca tinha namorado, mas eu sabia que queria aprender tudo ao seu lado.</p>
+
+      <p>você é a minha primeira paixão, minha maior loucura, minha certeza. e eu espero que isso nunca se quebre, nunca se perca. você é o sol que ilumina todos os meus dias, minha calmaria e minha tempestade, minha melhor amiga e minha parceira de vida. eu quero estar contigo em todos os momentos: nas dificuldades, nas lutas, nas conquistas, na vitória e na dor, porque é do seu lado que tudo faz sentido.</p>
+
+      <p>obrigado por cada detalhe que você faz por mim. pelo jantar à luz de velas no meu aniversário, pela camisa do mcqueen, pelo nosso livro, pelo nosso quadro, pelos presentes, pelas surpresas… mas acima de tudo, obrigado pelas suas atitudes, pelo seu amor, pelo seu cuidado, pelo seu carinho em cada pequeno gesto. isso é o que mais me toca.</p>
+
+      <p>você é incrível. é linda de corpo, de alma, de coração. é o tipo de mulher que qualquer um sonharia em ter na vida, e eu tenho o privilégio de poder te chamar de minha. você é a mulher que eu quero construir minha família, ter meus filhos, envelhecer ao lado, ver o tempo passar com orgulho de tudo que a gente construiu.</p>
+
+      <p>eu espero que você sinta, em cada palavra, o tamanho do amor que eu tenho por você. porque não existe ninguém nesse mundo que ocupe o seu lugar. eu te amo com tudo o que eu sou.</p>
+
+      <p>feliz dia dos namorados, minha princesa. esse é só mais um capítulo da nossa linda história, e eu quero escrever infinitos capítulos ao seu lado.</p>
+
+      <button id="btn-rolar" title="Rolar para o texto da carta" onclick="irParaFotos()">⬇️ Clique aqui para continuar</button>
+    </div>
+
+  </main>
+
+  <script>
+    function mostrarCarta() {
+      document.getElementById('animacao-carta').style.display = 'none';
+      document.getElementById('conteudo-carta').style.display = 'block';
+
+      // Animação de scroll suave
+      setTimeout(() => {
+        document.getElementById('conteudo-carta').scrollIntoView({ behavior: 'smooth' });
+      }, 300); 
+    }
+
+    function irParaFotos() {
+      document.body.classList.add('fadeOut');
+      setTimeout(() => {
+        window.location.href = 'fotos.html'; // Redireciona para a página de fotos
+      }, 800); // espera a animação terminar
+    }
+
+    const links = document.querySelectorAll('.menu-circulo a');
+
+    links.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.body.classList.add('fadeOut');
+        const destino = this.href;
+        setTimeout(() => {
+          window.location.href = destino;
+        }, 800); // espera a animação terminar
+      });
+    });
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recadinhos 💖</title>
+  <link rel="stylesheet" href="style.css?v=2">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #c2484c, #000000);
+      color: white;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0; /* Começa invisível */
+      transition: opacity 1s ease; /* Transição de opacidade */
+    }
+
+    header {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .postits-container {
+      margin: 40px auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      max-width: 1000px;
+      opacity: 0; /* Começa invisível */
+      transform: translateY(20px); /* Começa deslocado para baixo */
+      transition: transform 0.5s ease, opacity 0.5s ease; /* Transição de transformação e opacidade */
+    }
+
+    .postit {
+      width: 150px;
+      height: 150px;
+      background-color: #fff5f5;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      border-radius: 8px;
+      transform: rotate(calc(-3deg + 6deg * var(--i)));
+      transition: transform 0.3s, box-shadow 0.3s;
+      padding: 10px;
+      font-family: 'Dancing Script', cursive;
+      font-size: 1rem;
+      color: #5c0000;
+      position: relative;
+    }
+
+    .postit:hover {
+      transform: scale(1.05) rotate(0deg);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      z-index: 2;
+    }
+
+    .postit::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 15px;
+      background: #960638;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .botao-inteligente {
+      margin-top: 30px; /* Espaço acima do botão */
+      padding: 12px 24px; /* Aumentando o padding para um botão maior */
+      font-size: 1.2rem; /* Aumentando o tamanho da fonte */
+      cursor: pointer;
+      background: rgba(0,0,0,0.5); /* Cor de fundo semi-transparente */
+      color: white;
+      border: none;
+      border-radius: 10px; /* Bordas arredondadas */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Sombra para o botão */
+      transition: background-color 0.3s, transform 0.3s; /* Transições suaves */
+    }
+
+    .botao-inteligente:hover {
+      background-color: rgba(255, 255, 255, 0.4); /* Cor de fundo ao passar o mouse */
+      transform: scale(1.05); /* Efeito de aumento ao passar o mouse */
+    }
+
+    /* Media Queries para telas menores */
+@media (max-width: 767px)
+
+
+
+
+
+{
+  .postit {
+    width: 120px;
+    height: 120px;
+    font-size: 0.9rem;
+    /* Ajuste na rotação pra ficar mais suave no mobile */
+    transform: rotate(calc(-2deg + 4deg * var(--i)));
+  }
+
+  .botao-inteligente {
+    font-size: 1rem;
+    padding: 10px 20px;
+    max-width: 100%;
+  }
+
+  .postits-container {
+    gap: 15px;
+    padding: 0 5px;
+  }
+
+  body {
+    background: linear-gradient(135deg, #c2484c, #000000); /* fundo mais suave e clarinho no mobile */
+    transition: transform 0.3s ease;
+    transform: scale(0.9);
+    transform-origin: top center;
+    margin: 0 auto;
+      max-width: 100vw; }
+}
+  </style>
+</head>
+<body>
+
+  <div class="hearts-container"></div>
+
+  <header>
+    <h1>Te Amo, Jhennifer 💖</h1>
+    <nav class="menu-circulo">
+      <a href="index.html">🏠</a>
+      <a href="carta.html">💌</a>
+      <a href="fotos.html">📸</a>
+      <a href="recados.html">📝</a>
+      <a href="quiz.html">❓</a>
+      <a href="final.html">💖</a>
+    </nav>
+  </header>
+
+  <main class="postits-container">
+    <div class="postit" style="--i:1">Você é meu porto seguro 💖</div>
+    <div class="postit" style="--i:2">Eu te amo mais do que palavras dizem 🌹</div>
+    <div class="postit" style="--i:3">Cada dia ao seu lado é único 🎁</div>
+    <div class="postit" style="--i:4">Nossa história só começa 💍</div>
+    <div class="postit" style="--i:5">Escolho você sempre 💖</div>
+    <div class="postit" style="--i:6">Nosso futuro me anima 👶🏡</div>
+    <div class="postit" style="--i:7">Sou feliz ao seu lado 🌟</div>
+    <div class="postit" style="--i:8">Seu sorriso ilumina minha vida ☀️</div>
+    <div class="postit" style="--i:9">Sempre com você 💑</div>
+    <div class="postit" style="--i:10">Minha princesa 💖</div>
+  </main>
+
+  <!-- Botão inteligente para mudar de página -->
+  <button class="botao-inteligente" onclick="irParaOutraPagina()">Mudar para a página do Quiz❓ </button>
+
+  <script>
+    const links = document.querySelectorAll('.menu-circulo a');
+
+    links.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.body.classList.add('fadeOut');
+        const destino = this.href;
+        setTimeout(() => {
+          window.location.href = destino;
+        }, 800); // espera a animação terminar
+      });
+    });
+
+    // Função para ir para a página do quiz
+    function irParaOutraPagina() {
+      document.body.classList.add('fadeOut');
+      setTimeout(() => {
+        window.location.href = 'Quiz.html'; // Redireciona para a página do quiz
+      }, 800); // espera a animação terminar
+    }
+
+    // Função para animar a entrada da página
+    function animarEntrada() {
+      document.body.style.opacity = '1'; // Torna o corpo visível
+      const postitsContainer = document.querySelector('.postits-container');
+      postitsContainer.style.opacity = '1'; // Torna o container visível
+      postitsContainer.style.transform = 'translateY(0)'; // Move para a posição original
+    }
+
+    // Chama a função de animação de entrada após um pequeno atraso
+    window.onload = function() {
+      setTimeout(animarEntrada, 100); // Atraso de 100ms para a animação
+    };
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>

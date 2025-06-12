@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nosso Álbum 💖</title>
+  <link rel="stylesheet" href="style.css?v=2">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #c2484c, #000000);
+      color: white;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0; /* Começa invisível */
+      transition: opacity 1s ease; /* Transição de opacidade */
+    }
+
+    header {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .album-container {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transform: translateY(20px); /* Começa deslocado para baixo */
+      opacity: 0; /* Começa invisível */
+      transition: transform 0.5s ease, opacity 0.5s ease; /* Transição de transformação e opacidade */
+    }
+
+    .livro {
+      background: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+      text-align: center;
+      max-width: 90%;
+      max-height: 600px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .livro img {
+      max-width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+      transition: transform 0.6s, opacity 0.6s;
+      cursor: pointer;
+    }
+
+    .livro img:hover {
+      transform: scale(1.05);
+    }
+
+    .fade {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+
+    .livro p {
+      margin-top: 15px;
+      color: #fff;
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.8rem;
+      transition: opacity 0.5s;
+    }
+
+    .botao-inteligente {
+      margin-top: 20px;
+      padding: 12px 24px; /* Aumentando o padding para um botão maior */
+      font-size: 1.2rem; /* Aumentando o tamanho da fonte */
+      cursor: pointer;
+      background: rgba(0,0,0,0.5); /* Cor de fundo semi-transparente */
+      color: white;
+      border: none;
+      border-radius: 10px; /* Bordas arredondadas */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Sombra para o botão */
+      transition: background-color 0.3s, transform 0.3s; /* Transições suaves */
+    }
+
+    .botao-inteligente:hover {
+      background-color: rgba(255, 255, 255, 0.4); /* Cor de fundo ao passar o mouse */
+      transform: scale(1.05); /* Efeito de aumento ao passar o mouse */
+    }
+
+    /* Media Queries for Responsive Design */
+    @media (max-width: 767px) {
+  body {
+    background: linear-gradient(135deg, #c2484c, #000000);
+ /* degradê suave pro mobile */
+    
+    
+    transition: transform 0.3s ease;
+    transform: scale(0.9);
+    transform-origin: top center;
+    margin: 0 auto;
+    max-width: 100vw;
+  }
+
+  .livro img {
+    height: 250px;
+  }
+
+  .livro p {
+    font-size: 1.2rem;
+  }
+
+  .botao-inteligente {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div class="hearts-container"></div>
+
+  <header>
+    <h1>Te Amo, Jhennifer 💖</h1>
+    <nav class="menu-circulo">
+      <a href="index.html">🏠</a>
+      <a href="carta.html">💌</a>
+      <a href="fotos.html">📸</a>
+      <a href="recados.html">📝</a>
+      <a href="quiz.html">❓</a>
+      <a href="final.html">💖</a>
+    </nav>
+  </header>
+  
+  <main class="album-container">
+    <div class="livro">
+      <img id="foto" src="imagens/jhe.jpeg" alt="Sua foto favorita 💖 " onclick="proximaFoto()">
+      <p id="legenda">Nosso primeiro passeio 💖</p>
+    </div>
+    
+    <button class="botao-inteligente" onclick="irParaRecados()">Mudar para a página de Recados 📝</button>
+  </main>
+
+  <script>
+    const fotos = [
+      { src: "imagens/jhe.jpeg", legenda: "Sua foto favorita 💖" },
+      { src: "imagens/cacheadinha.jpeg", legenda: "caralho olha a beleza dessa mulher 😍" },
+      { src: "imagens/linda.jpeg", legenda: "Sou completamente apaixonado por vc 😍" },
+      { src: "imagens/princesa.jpeg", legenda: "Quero que nossa filha puxe sua beleza🌹" },
+      { src: "imagens/olhar.jpeg", legenda: "Nossa conexão 🌹" },
+      { src: "imagens/pastel.jpeg", legenda: "Nosso momento simples.. mas incrivel 💖" },
+      { src: "imagens/treino.jpeg", legenda: "Onde tudo começou 💖" },
+      { src: "imagens/nos.jpeg", legenda: "Nosso rolê apaixonante 😍" },
+      { src: "imagens/amor.jpeg", legenda: "Mais um momento marcante 🌹" },
+      { src: "imagens/gostosa.jpeg", legenda: "Uma foto suaaa bemmm lindaaaa 💖" },
+      { src: "imagens/eu.jpeg", legenda: "Por ultimo agradeço por tudo... amo voce 💖" }
+    ];
+
+    let index = 0;
+
+    function proximaFoto() {
+      const img = document.getElementById("foto");
+      const legenda = document.getElementById("legenda");
+
+      img.classList.add('fade');
+      legenda.style.opacity = 0;
+
+      setTimeout(() => {
+        index = (index + 1) % fotos.length;
+        img.src = fotos[index].src;
+        legenda.innerText = fotos[index].legenda;
+        img.classList.remove('fade');
+        legenda.style.opacity = 1;
+      }, 500);
+    }
+
+    // Função para ir para a página de recados
+    function irParaRecados() {
+      document.body.classList.add('fadeOut');
+      setTimeout(() => {
+        window.location.href = 'recados.html'; // Redireciona para a página de recados
+      }, 800); // espera a animação terminar
+    }
+
+    // Função para animar a entrada da página
+    function animarEntrada() {
+      document.body.style.opacity = '1'; // Torna o corpo visível
+      const albumContainer = document.querySelector('.album-container');
+      albumContainer.style.opacity = '1'; // Torna o container visível
+      albumContainer.style.transform = 'translateY(0)'; // Move para a posição original
+    }
+
+    // Chama a função de animação de entrada após um pequeno atraso
+    window.onload = function() {
+      setTimeout(animarEntrada, 100); // Atraso de 100ms para a animação
+    };
+
+    const links = document.querySelectorAll('.menu-circulo a');
+
+    links.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.body.classList.add('fadeOut');
+        const destino = this.href;
+        setTimeout(() => {
+          window.location.href = destino;
+        }, 800); // espera a animação terminar
+      });
+    });
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>

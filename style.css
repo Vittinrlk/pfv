@@ -1,0 +1,435 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #c2484c, #000000);
+  color: #fff;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+header {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 36px;
+  color: rgb(255, 255, 255);
+}
+
+.menu-circulo {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.menu-circulo a {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  text-decoration: none;
+  background-color: #de0a0ab4;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s;
+}
+
+.menu-circulo a:hover {
+  transform: scale(1.2);
+}
+
+.container {
+  background:rgba(0, 0, 0, 0.5);
+  padding: 30px 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.15);
+  max-width: 480px;
+  margin: 30px auto;
+  transition: transform 0.3s ease;
+}
+
+.container:hover {
+  transform: scale(1.02);
+}
+
+.container h1, h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.container p {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+button {
+  background: linear-gradient(135deg, #871115, #e95656);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(255, 105, 135, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 20px rgba(255, 105, 135, 0.5);
+}
+
+.entrada {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 1.5s ease;
+}
+
+.coracao {
+  cursor: pointer;
+  text-align: center;
+  animation: pulse 2s infinite;
+}
+
+.img-coracao {
+  width: 150px;
+  height: 150px;
+  filter: drop-shadow(0 0 10px #960638);
+}
+
+.digite {
+  margin-top: 20px;
+  font-size: 1.3em;
+  color: #d7d7d7;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px #d8596c;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; transform: scale(0.8); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+.hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  
+}
+
+.heart {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-image: url('https://cdn-icons-png.flaticon.com/512/833/833472.png');
+  background-size: cover;
+  animation: subir 15s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes subir {
+  0% { transform: translateY(100vh); }
+  100% { transform: translateY(-100vh); }
+}
+
+#frases-romanticas p {
+  position: fixed;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.7);
+  color: rgb(255, 255, 255);
+  padding: 10px 20px;
+  border-radius: 15px;
+  font-size: 1.2rem;
+  animation: aparecer 3s ease-in-out forwards;
+}
+
+@keyframes aparecer {
+  0% { opacity: 0; transform: translateY(20px); }
+  50% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-20px); }
+}
+
+#explosao-coracoes .heart {
+  width: 40px;
+  height: 40px;
+  background-image: url('https://cdn-icons-png.flaticon.com/512/833/833472.png');
+  animation: explodir 4s linear forwards;
+  z-index: 999;
+}
+
+@keyframes explodir {
+  0% { transform: scale(0.5) translateY(0); opacity: 1; }
+  100% { transform: scale(1.5) translateY(-300px); opacity: 0; }
+}
+
+.mensagem-animada {
+  font-size: 1.5rem;
+  color: red;
+  font-weight: bold;
+  animation: zoomIn 0.5s ease-in-out;
+  text-align: center;
+  margin-top: 20px;
+}
+
+@keyframes zoomIn {
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+
+.animacao-carta {
+  font-size: 100px;
+  cursor: pointer;
+  animation: balancar 2s infinite;
+}
+
+@keyframes balancar {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.click-text {
+  font-size: 1.2rem;
+  margin-top: 20px;
+  color: #fff;
+}
+
+#btn-rolar {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #ff5c8d;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  z-index: 9999;
+}
+
+#btn-rolar.mostrar {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+  animation: bounceIn 0.6s ease forwards;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.carta-scroll {
+  max-height: 400px; /* altura da caixa de rolagem */
+  overflow-y: auto;
+  padding-right: 10px;
+  text-align: justify;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  scrollbar-width: thin;
+  scrollbar-color: #ff5e7e rgba(255,255,255,0.2);
+  opacity: 0;
+  transform: translateY(50px) scale(0.95);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+/* Scroll bonito pra navegador webkit (chrome, edge, safari etc) */
+.carta-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.carta-scroll::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.1);
+  border-radius: 15px;
+}
+.carta-scroll::-webkit-scrollbar-thumb {
+  background: #ff5e7e;
+  border-radius: 15px;
+}
+
+
+/* Estado inicial da carta (pode já estar) */
+.animacao-carta {
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+/* Animação de abertura */
+.abrindo {
+  transform: scale(0) rotate(-10deg);
+  opacity: 0;
+}
+
+
+.carta-scroll.entrar {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.fadeOut {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Media Queries para Mobile */
+@media (max-width: 767px) {
+  body {
+    padding: 10px;
+    overflow-x: hidden; /* Evita scroll horizontal */
+
+      background: linear-gradient(135deg, #c2484c, #000000); /* fundo mais suave e clarinho no mobile */
+      transition: transform 0.3s ease;
+      transform: scale(0.9);
+      transform-origin: top center;
+      margin: 0 auto;
+      max-width: 100vw;
+  }
+
+  header h1 {
+    font-size: 28px;
+    padding: 0 10px;
+  }
+
+  .menu-circulo {
+    gap: 12px;
+  }
+
+  .menu-circulo a {
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem;
+  }
+
+  .container {
+    max-width: 90vw;
+    padding: 20px 15px;
+    margin: 20px auto;
+  }
+
+  .container h1,
+  .container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+
+  .container p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 25px;
+  }
+
+  .entrada {
+    height: auto;
+    padding: 30px 10px;
+  }
+
+  .img-coracao {
+    width: 120px;
+    height: 120px;
+  }
+
+  .digite {
+    font-size: 1.1em;
+  }
+
+  #frases-romanticas p {
+    font-size: 1rem;
+    padding: 8px 15px;
+    bottom: 8%;
+  }
+
+  #btn-rolar {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .carta-scroll {
+    max-height: 300px;
+    padding-right: 6px;
+    font-size: 0.95rem;
+  }
+
+  .animacao-carta {
+    font-size: 80px;
+  }
+}

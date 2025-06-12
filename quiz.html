@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz do Amor 💖</title>
+  <link rel="stylesheet" href="style.css?v=2">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #c2484c, #000000);
+      color: white;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0; /* Começa invisível */
+      transition: opacity 1s ease; /* Transição de opacidade */
+    }
+
+    header {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .container {
+      opacity: 0; /* Começa invisível */
+      transform: translateY(20px); /* Começa deslocado para baixo */
+      transition: transform 0.5s ease, opacity 0.5s ease; /* Transição de transformação e opacidade */
+    }
+
+    #perguntas {
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+      margin: 5px; /* Adiciona margem entre os botões */
+    }
+
+    button:hover {
+      background-color: #ff1493;
+    }
+
+    .correct {
+      background-color: #28a745; /* Verde para resposta correta */
+      animation: correctAnimation 0.5s forwards; /* Animação para resposta correta */
+    }
+
+    @keyframes correctAnimation {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    /* Media Queries for Responsive Design */
+    /* Media Queries para Mobile */
+@media (max-width: 767px) {
+  body {
+    padding: 15px 10px;
+
+    background: linear-gradient(135deg, #c2484c, #000000); /* fundo mais suave e clarinho no mobile */
+    transition: transform 0.3s ease;
+    transform: scale(0.9);
+    transform-origin: top center;
+    margin: 0 auto;
+    max-width: 100vw;
+  }
+
+  header {
+    margin-top: 15px;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 15px 10px;
+  }
+
+  #perguntas {
+    gap: 8px;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 10px 16px;
+    max-width: 100%;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+
+  <div class="hearts-container"></div>
+
+  <header>
+    <h1>Nosso Quiz 💕</h1>
+    <nav class="menu-circulo">
+      <a href="index.html">🏠</a>
+      <a href="carta.html">💌</a>
+      <a href="fotos.html">📸</a>
+      <a href="recados.html">📝</a>
+      <a href="quiz.html">❓</a>
+      <a href="final.html">💖</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2>Teste o quanto você nos conhece 💞</h2>
+    <button id="btnIniciar">Iniciar Quiz</button>
+    <div id="perguntas"></div>
+  </main>
+
+  <script>
+    function fazerPerguntas() {
+      const div = document.getElementById('perguntas');
+      div.innerHTML = '';
+
+      const perguntas = [
+        {
+          pergunta: "Qual foi nosso primeiro rolê?",
+          alternativas: ["Shopping", "Cinema", "Praça", "Em casa"],
+          correta: 0
+        },
+        {
+          pergunta: "Qual apelido eu mais uso pra você?",
+          alternativas: ["Amor", "Vida", "Princesa", "Nenem"],
+          correta: 3
+        },
+        {
+          pergunta: "O que a gente mais gosta de fazer juntinhos?",
+          alternativas: ["Sair", "Ver série", "Dormir colado", "Comer besteira"],
+          correta: 3
+        },
+        {
+          pergunta: "O que eu elogiei quando respondi seus storys?",
+          alternativas: ["Cabelo", "Roupa", "Unha", "Corpo"],
+          correta: 2
+        },
+        {
+          pergunta: "Quando foi nosso primeiro beijo?",
+          alternativas: ["25/10/23", "18/10/23", "09/09/22", "09/09/23"],
+          correta: 3
+        },
+        {
+          pergunta: "Que dia eu te pedi em namoro?",
+          alternativas: ["25/10/23", "18/10/23", "09/09/22", "09/09/23"],
+          correta: 0
+        },
+        {
+          pergunta: "Quem disse eu te amo primeiro?",
+          alternativas: ["nao lembra", "Juntos", "Vc", "Eu"],
+          correta: 3
+        },
+        {
+          pergunta: "Onde se conhecemos?",
+          alternativas: ["Pela familia", "Na rua", "Escola", "Academia"],
+          correta: 3
+        },
+        {
+          pergunta: "O que me marcou mais?",
+          alternativas: ["Priosion Break", "Velozes e Furiosos", "Naruto", "Mcqueen"],
+          correta: 2
+        },
+        {
+          pergunta: "Qual presente que vc me deu me marcou mais?",
+          alternativas: ["Camisa (São Paulo)", "Primeiro Presente", "Jantar", "Camisa(Mcqueen)"],
+          correta: 2 
+        }
+      ];
+
+      let atual = 0;
+      let acertos = 0;
+
+      function mostrarPergunta() {
+        if (atual >= perguntas.length) {
+          div.innerHTML = `<p><strong>Você acertou ${acertos} de ${perguntas.length} perguntas, amor! 🥹 Eu te amo demais! 💘</strong></p>`;
+          return;
+        }
+
+        const p = perguntas[atual];
+        div.innerHTML = `<h3>${p.pergunta}</h3>`;
+
+        p.alternativas.forEach((alt, index) => {
+          const btn = document.createElement('button');
+          btn.textContent = alt;
+          btn.style.margin = '5px';
+          btn.onclick = () => {
+            const botoes = div.querySelectorAll('button');
+            botoes.forEach(b => b.disabled = true);
+
+            if (index === p.correta) {
+              acertos++;
+              btn.classList.add('correct'); // Adiciona classe de correto
+              setTimeout(() => {
+                atual++;
+                mostrarPergunta();
+              }, 800);
+            } else {
+              alert('Hmm... tenta de novo, meu amor 🥺');
+              botoes.forEach(b => b.disabled = false);
+            }
+          };
+          div.appendChild(btn);
+        });
+      }
+
+      mostrarPergunta();
+    }
+
+    // Só inicia o quiz quando clicar no botão
+    document.getElementById('btnIniciar').onclick = () => {
+      document.getElementById('btnIniciar').style.display = 'none'; // esconde o botão
+      fazerPerguntas();
+    };
+
+    // Função para animar a entrada da página
+    function animarEntrada() {
+      document.body.style.opacity = '1'; // Torna o corpo visível
+      const container = document.querySelector('.container');
+      container.style.opacity = '1'; // Torna o container visível
+      container.style.transform = 'translateY(0)'; // Move para a posição original
+    }
+
+    // Chama a função de animação de entrada após um pequeno atraso
+    window.onload = function() {
+      setTimeout(animarEntrada, 100); // Atraso de 100ms para a animação
+    };
+
+    const links = document.querySelectorAll('.menu-circulo a');
+
+    links.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.body.classList.add('fadeOut');
+        const destino = this.href;
+        setTimeout(() => {
+          window.location.href = destino;
+        }, 800); // espera a animação terminar
+      });
+    });
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>

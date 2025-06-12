@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Final Feliz 💍</title>
+  <link rel="stylesheet" href="style.css?v=2">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #c2484c, #000000);
+      color: rgb(255, 255, 255);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0; /* Começa invisível */
+      transition: opacity 1s ease; /* Transição de opacidade */
+    }
+
+    .typing {
+      width: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid #000;
+      animation: typing 4s steps(30, end) forwards;
+      font-family: 'Courier New', monospace;
+      font-size: 24px; /* Aumentando o tamanho da fonte */
+      margin-top: 50px;
+      text-align: center; /* Centraliza o texto */
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    .surpresa {
+      margin-top: 30px;
+      font-size: 20px;
+      background: #c0392b; /* Vermelho mais escuro */
+      padding: 10px 20px;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      opacity: 0; /* Começa invisível */
+      transform: translateY(20px); /* Começa deslocado para baixo */
+      transition: transform 0.5s ease, opacity 0.5s ease; /* Transição de transformação e opacidade */
+    }
+
+    .surpresa.visible {
+      opacity: 1; /* Torna o botão visível */
+      transform: translateY(0); /* Move para a posição original */
+    }
+
+    .container {
+      max-width: 900px; /* Aumentando a largura do container */
+      text-align: center; /* Centraliza o texto dentro do container */
+      padding: 20px; /* Adiciona um pouco de espaço interno */
+      background: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente para contraste */
+      border-radius: 15px; /* Bordas arredondadas */
+      margin: 20px; /* Adiciona margem ao redor do container */
+    }
+
+    #contador {
+      font-size: 20px; /* Tamanho da fonte do contador */
+      margin-top: 20px; /* Espaço acima do contador */
+    }
+
+    @media (max-width: 767px) {
+  body {
+    background: linear-gradient(135deg, #c2484c, #000000); /* fundo mais suave e clarinho no mobile */
+    transition: transform 0.3s ease;
+    transform: scale(0.9);
+    transform-origin: top center;
+    margin: 0 auto;
+    max-width: 100vw;
+  }
+
+  .typing {
+    font-size: 18px;
+  }
+
+  .surpresa {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+
+  #contador {
+    font-size: 16px;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="hearts-container"></div>
+
+  <header>
+    <h1>Te Amo, Jhennifer 💖</h1>
+    <nav class="menu-circulo">
+      <a href="index.html">🏠</a>
+      <a href="carta.html">💌</a>
+      <a href="fotos.html">📸</a>
+      <a href="recados.html">📝</a>
+      <a href="quiz.html">❓</a>
+      <a href="final.html">💖</a>
+    </nav>
+  </header>
+  
+  <div class="container">
+    <h1 class="typing">Eu te amo mais que tudo nesse mundo! 💖</h1>
+    <button class="surpresa" id="btnSurpresa" onclick="mostrarFinal()">Quer casar comigo? 💍</button>
+    <p id="finalMensagem"></p>
+    <div id="contador"></div> <!-- Div para o contador -->
+  </div>
+
+  <script>
+    function mostrarFinal() {
+      document.getElementById("finalMensagem").textContent = "Brincadeira (ainda 😏), mas quero viver tudo contigo(inclusive isso)! Eu te amo pra sempre! 💘";
+    }
+
+    // Função para calcular o tempo desde o início do namoro
+    function atualizarContador() {
+      const dataInicio = new Date('2023-09-09T00:00:00'); // Data de início do namoro
+      const agora = new Date();
+      const tempo = agora - dataInicio;
+
+      const segundos = Math.floor((tempo / 1000) % 60);
+      const minutos = Math.floor((tempo / (1000 * 60)) % 60);
+      const horas = Math.floor((tempo / (1000 * 60 * 60)) % 24);
+      const dias = Math.floor(tempo / (1000 * 60 * 60 * 24));
+
+      // Calcular anos e meses
+      const anos = agora.getFullYear() - dataInicio.getFullYear();
+      const meses = agora.getMonth() - dataInicio.getMonth() + (anos * 12);
+
+      // Exibir o contador
+      document.getElementById("contador").textContent = `Estamos juntos há ${anos} anos, ${meses % 12} meses, ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos.`;
+    }
+
+    // Atualiza o contador a cada segundo
+    setInterval(atualizarContador, 1000);
+
+    // Função para animar a entrada da página
+    function animarEntrada() {
+      document.body.style.opacity = '1'; // Torna o corpo visível
+      const btnSurpresa = document.getElementById('btnSurpresa');
+      btnSurpresa.classList.add('visible'); // Torna o botão visível
+    }
+
+    // Chama a função de animação de entrada após um pequeno atraso
+    window.onload = function() {
+      setTimeout(animarEntrada, 100); // Atraso de 100ms para a animação
+      atualizarContador(); // Atualiza o contador ao carregar a página
+    };
+
+    const links = document.querySelectorAll('.menu-circulo a');
+
+    links.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.body.classList.add('fadeOut');
+        const destino = this.href;
+        setTimeout(() => {
+          window.location.href = destino;
+        }, 800); // espera a animação terminar
+      });
+    });
+  </script>
+
+  <script src="script.js"></script> 
+</body>
+</html>
